@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { Route, Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
-import ComponentOne from "./ComponentOne";
-import ComponentTwo from "./ComponentTwo";
+import LandingPage from "./LandingPage";
 
 class Main extends Component {
+
+    buttonClicked = () => {
+        this.props.clickTheButton();
+        console.log(this.props.app);
+    }
+
     render() {
-      return (
+
+      const loggedin = false;
+
+      if(!loggedin) {
+        return (
+            <div>
+                <LandingPage />
+            </div>
+        );
+      } else {
+        return (
           <div>
-              Hi There, I am the main component.<br/>
-              <Link to="/one">Component One</Link><br/>
-              <Link to="/two">Component Two</Link><br/>
-              <Link to="/two/child">Component Two Child</Link>
+
           </div>
-      );
+        )
+      }
     }
 }
 
