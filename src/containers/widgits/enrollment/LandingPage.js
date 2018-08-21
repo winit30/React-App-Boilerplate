@@ -14,36 +14,8 @@ class LandingPage extends Component {
         }
     }
 
-    componentWillMount() {
-
-    }
-
-    componentDidMount() {
-
-    }
-
-    componentWillUpdate() {
-
-    }
-
-    componentDidUpdate() {
-
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if(this.state.name !== nextState.name) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    componentWillUnMount() {
-
-    }
-
     enrollMerchant = () => {
-        console.log("enroll");
+        this.props.history.push("/enroll-merchant");
     }
 
     loginMerchant = () => {
@@ -59,7 +31,7 @@ class LandingPage extends Component {
           <div>
               <Logo/>
               <NavMenu>
-                  <NavItem path="/login">Merchant Login</NavItem>
+                  <NavItem path="/login">Overview</NavItem>
                   <NavItem path="/somepath1">How it works?</NavItem>
                   <NavItem path="/somepath2">Why Funds advance</NavItem>
               </NavMenu>
