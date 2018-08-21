@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
-import LandingPage from "./LandingPage";
+import Routes from "./../config/Routes";
 
 class Main extends Component {
 
-    buttonClicked = () => {
-        this.props.clickTheButton();
-        console.log(this.props.app);
+    constructor(props) {
+        super(props);
+        this.state = {
+            loggedIn: true
+        }
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
-
-      const loggedin = false;
-
-      if(!loggedin) {
-        return (
-            <div>
-                <LandingPage />
-            </div>
-        );
-      } else {
-        return (
-          <div>
-
-          </div>
+        return(
+          <Routes loggedIn={this.state.loggedIn}/>
         )
-      }
     }
 }
 
@@ -38,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

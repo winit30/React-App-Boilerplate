@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Button from "./../../components/buttons/Button";
-import Logo from "./../../components/Logo";
-import NavMenu from "./../../components/nav/NavMenu";
-import NavItem from "./../../components/nav/NavItem";
+import Button from "./../../../components/buttons/Button";
+import Logo from "./../../../components/Logo";
+import NavMenu from "./../../../components/nav/NavMenu";
+import NavItem from "./../../../components/nav/NavItem";
 
 class LandingPage extends Component {
     constructor(props) {
@@ -19,9 +19,7 @@ class LandingPage extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-          name: "Vineet"
-        })
+
     }
 
     componentWillUpdate() {
@@ -42,10 +40,6 @@ class LandingPage extends Component {
 
     componentWillUnMount() {
 
-    }
-
-    componentWillReceiveProps(nextPorps) {
-        console.log(nextPorps);
     }
 
     enrollMerchant = () => {
