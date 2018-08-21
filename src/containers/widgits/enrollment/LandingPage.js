@@ -36,8 +36,8 @@ class LandingPage extends Component {
                   <NavItem path="/somepath2">Why Funds advance</NavItem>
               </NavMenu>
               <div>
-                  <Button onClick={this.enrollMerchant} buttonName="Enroll"/>
-                  <Button onClick={this.loginMerchant} buttonName="Merchant Login" />
+                  <Button buttonClass="btn btn-primary" onClick={this.enrollMerchant} buttonName="Enroll"/>
+                  <Button buttonClass="btn btn-danger" onClick={this.loginMerchant} buttonName="Merchant Login" />
                   <Button onClick={this.loginAdmin} buttonName="Admin Login" />
               </div>
           </div>
