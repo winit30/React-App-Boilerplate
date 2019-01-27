@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
 
 import Routes from "./../config/Routes";
+import "../styles/main.css";
 
 class Main extends Component {
 
@@ -19,7 +20,7 @@ class Main extends Component {
 
     render() {
         return(
-          <Routes loggedIn={this.state.loggedIn}/>
+          <Routes loggedIn={this.state.loggedIn} />
         )
     }
 }
