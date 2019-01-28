@@ -6,6 +6,7 @@ import Sidebar from "../../../components/Sidebar";
 import AddCategory from "./AddCategory";
 import AddSubCategory from "./AddSubCategory";
 import AddSubSubCategory from "./AddSubSubCategory";
+import GetCategories from "./GetCategories";
 
 class LandingPage extends Component {
 
@@ -22,6 +23,7 @@ class LandingPage extends Component {
                   <Route path={`${match.path}/add-category`} component={AddCategory} />
                   <Route path={`${match.path}/add-sub-category`} component={AddSubCategory} />
                   <Route path={`${match.path}/add-sub-sub-category`} component={AddSubSubCategory} />
+                  <Route path={`${match.path}/get-categories`} component={GetCategories} />
               </div>
           </div>
       );

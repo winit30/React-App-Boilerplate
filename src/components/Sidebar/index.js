@@ -12,8 +12,8 @@ class Sidebar extends Component {
                   <li><Link to={`${match.url}/add-category`}>Create Category</Link></li>
                   <li><Link to={`${match.url}/add-sub-category`}>Create Sub-Category</Link></li>
                   <li><Link to={`${match.url}/add-sub-sub-category`}>Create Sub-Sub-Category</Link></li>
-                  <li><Link to={`${match.url}/add-category`}>Get Category</Link></li>
-                  <li><Link to={`${match.url}/add-category`}>Edit Category</Link></li>
+                  <li><Link to={`${match.url}/get-categories`}>Get Category</Link></li>
+                  <li><Link to={`${match.url}/get-categories`}>Edit Category</Link></li>
               </ul>
           </div>
         );
