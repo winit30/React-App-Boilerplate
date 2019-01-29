@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Route, Switch} from "react-router-dom";
 
-import Admin from "./../containers/widgits/Admin";
+import Categories from "./../containers/widgits/Categories";
+import Products from "./../containers/widgits/Products";
 
 const PageNotFound = () => (<div>404 Page Not Found.</div>);
 
@@ -10,7 +11,8 @@ class Routes extends Component {
         return (
             <main>
                 <Switch>
-                    <Route path="/admin"  component={Admin} />
+                    <Route path="/categories"  component={Categories} />
+                    <Route path="/products"  component={Products} />
                     <Route component={PageNotFound} />
                 </Switch>
             </main>

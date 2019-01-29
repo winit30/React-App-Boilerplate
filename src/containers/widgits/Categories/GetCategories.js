@@ -29,8 +29,9 @@ class GetCategories extends Component {
                 <tr key={index}>
                     <td>{cat._id}</td>
                     <td>{cat.categoryName}</td>
+                    <td>{cat.iconName}</td>
                     <td>
-                        <button>Edit</button> <button onClick={() => this.deleteCategoryRequest(cat._id)}>Delete</button>
+                        <button onClick={() => this.deleteCategoryRequest(cat._id)}>Delete</button>
                     </td>
                 </tr>
             );
@@ -41,12 +42,13 @@ class GetCategories extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className="col-12 py-md-3 pl-md-5">
-                            <table className="table table-striped">
+                    <div className="col-12 py-md-5">
+                            <table className="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th style={{width: 350}}>ID</th>
                                         <th>Category</th>
+                                        <th>Icon</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

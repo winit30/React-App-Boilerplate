@@ -47,7 +47,7 @@ class AddSubSubCtegory extends Component {
             const body = category[0];
             body.subCategories.push({
                 subCategoryName: this.state.values.subCategoryName,
-                subCategoryAlias: this.state.values.subCategoryName.toLowerCase(),
+                subCategoryAlias: `${category[0].categoryAlias}-${this.state.values.subCategoryName.toLowerCase()}`,
                 subCategoriesTwo: []
             });
             await fetchApi("/categories/updateCategory/"+this.state.values.selectedCategory, "PUT", 200, body);
@@ -58,7 +58,7 @@ class AddSubSubCtegory extends Component {
       return (
         <div>
             <div className="container">
-                <div className="col-12 py-md-3 pl-md-5">
+                <div className="col-12 py-md-5">
                     <div className="dropdown mb-3">
                         <select className="btn btn-primary dropdown-toggle" onChange={(e) => this.onChangeText("selectedCategory", e)}>
                             <option value="">Select</option>

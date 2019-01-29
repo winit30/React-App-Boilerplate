@@ -30,7 +30,7 @@ class AddCtegory extends Component {
       return (
         <div>
             <div className="container">
-                <div className="col-12 py-md-3 pl-md-5">
+                <div className="col-12 py-md-5">
                     <div className="input-group mb-3">
                       <div className="input-group-prepend">
                         <span className="input-group-text">Category Name</span>

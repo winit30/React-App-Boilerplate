@@ -40,6 +40,7 @@ export const fetchApi = async (url, method, status, body = null) => {
         const errorBody = await response.json();
         console.log("Error Details =>", errorBody);
     } catch (e) {
-        throw new Error(e);
+        console.log(e);
+        // throw new Error(e);
     }
 }

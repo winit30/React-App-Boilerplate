@@ -69,7 +69,7 @@ class AddSubCtegory extends Component {
                  if (subCat._id === this.state.values.selectedSubCategory) {
                       subCat.subCategoriesTwo.push({
                           subCategoryTwoName: this.state.values.subSubCategoryName,
-                          subCategoryTwoAlias: this.state.values.subSubCategoryName.toLowerCase()
+                          subCategoryTwoAlias: `${subCat.subCategoryAlias}-${this.state.values.subSubCategoryName.toLowerCase()}`
                       });
                  }
             });
@@ -82,7 +82,7 @@ class AddSubCtegory extends Component {
       return (
         <div>
             <div className="container">
-                <div className="col-12 py-md-3 pl-md-5">
+                <div className="col-12 py-md-5">
                     <div className="dropdown mb-3">
                       <select className="btn btn-primary dropdown-toggle" onChange={(e) => this.onChangeText("selectedCategory", e)}>
                           <option value="">Select</option>
