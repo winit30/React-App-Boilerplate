@@ -25,3 +25,7 @@
 .left-gap-250 {
     padding-left: 265px;
 }
+
+.max-thumbnail-width {
+    width: 150px;
+}

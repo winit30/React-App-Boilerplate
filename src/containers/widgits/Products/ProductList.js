@@ -9,11 +9,23 @@ class ProductList extends Component {
         productList: []
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getProductList();
+    }
+
+    getProductList = async () => {
         const response = await fetchApi("/products/getProducts", "GET", 200);
         this.setState({
             productList: response
-        })
+        });
+    }
+
+    onChangeProductStatus = async (id, status) => {
+        const body = {
+            status
+        };
+        const response = await fetchApi(`/products/updateProduct/${id}`, "PUT", 200, body);
+        this.getProductList();
     }
 
     renderTableRows = () => {
@@ -25,6 +37,7 @@ class ProductList extends Component {
                     <td>{product.discount}</td>
                     <td>{product.brand}</td>
                     <td>{product.status ? <span className="badge badge-success">Active</span> : <span className="badge badge-secondary">In active</span>}</td>
+                    <td><button type="button" className={product.status ? "btn btn-secondary btn-sm" : "btn btn-success btn-sm"} onClick={() => this.onChangeProductStatus(product._id, !product.status)}>{product.status ? "Unpublish Now" : "Publish Now"}</button></td>
                 </tr>
             );
         });
@@ -43,6 +56,7 @@ class ProductList extends Component {
                                         <th>Discount</th>
                                         <th>Brand</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                     <tbody>

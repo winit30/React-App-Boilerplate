@@ -8,6 +8,7 @@ class AddProduct extends Component {
         categoryList: [],
         subCategoryList: [],
         subSubCategoryList: [],
+        coverImagePath: "",
         values: {
             category: "",
             subCategory: "",
@@ -18,15 +19,40 @@ class AddProduct extends Component {
             productDesc: "",
             productSummary: "",
             brand: "",
-            sizeAvailable: ""
+            sizeAvailable: "",
+            thumbnail: "",
+            coverImages: []
         }
     }
 
     async componentDidMount() {
         const response = await fetchApi("/categories/getCategories", "GET", 200);
+        if (response) {
+          this.setState({
+              categoryList: response
+          })
+        }
         console.log(response);
+
+    }
+
+    onChangeImage = (e) => {
         this.setState({
-            categoryList: response
+            coverImagePath: e.target ? e.target.value : ""
+        });
+    }
+
+    onAddCoverImage = () => {
+        this.setState({
+            ...this.state,
+            values: {
+                ...this.state.values,
+                coverImages: [
+                    ...this.state.values.coverImages,
+                    this.state.coverImagePath
+                ]
+            },
+            coverImagePath: ""
         })
     }
 
@@ -93,6 +119,14 @@ class AddProduct extends Component {
 
     onAddProductRequest = async () => {
         await fetchApi("/products/createProduct", "POST", 201, this.state.values);
+    }
+
+    renderCoverImages = () => {
+        return this.state.values.coverImages.map((image, index) => {
+            return (
+              <img src={image} alt="Cover Image" key={index} className="img-thumbnail max-thumbnail-width" />
+            );
+        });
     }
 
     render() {
@@ -164,6 +198,29 @@ class AddProduct extends Component {
                         </div>
                         <input type="text" className="form-control" value={this.state.values.sizeAvailable} onChange={(e) => this.onChangeText("sizeAvailable", e)} />
                     </div>
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Thumbnail</span>
+                        </div>
+                        <input type="text" className="form-control" value={this.state.values.thumbnail} onChange={(e) => this.onChangeText("thumbnail", e)} />
+                    </div>
+                    {this.state.values.thumbnail.length > 0 &&
+                      <div className="mb-3">
+                          <img src={this.state.values.thumbnail} className="img-thumbnail max-thumbnail-width"  />
+                      </div>
+                    }
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text">Cover Image</span>
+                        </div>
+                        <input type="text" className="form-control" value={this.state.coverImagePath} onChange={(e) => this.onChangeImage(e)} />
+                        <div className="input-group-append">
+                          <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onAddCoverImage}>Add More</button>
+                        </div>
+                    </div>
+                    {this.state.values.coverImages.length > 0 &&
+                        <div>{this.renderCoverImages()}</div>
+                    }
                     <button type="submit" className="btn btn-primary" onClick={this.onAddProductRequest}>Add Product</button>
                 </div>
             </div>
